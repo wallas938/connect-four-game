@@ -1,0 +1,5 @@
+@mixin app-border-style {
+  border: 3px solid $Black;
+  border-radius: 20px;
+  box-shadow: 1px 10px 1px $Black;
+}
