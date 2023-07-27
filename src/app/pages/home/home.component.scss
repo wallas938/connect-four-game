@@ -1,0 +1,123 @@
+@import "breakpoints";
+@import "mixins";
+@import "colors";
+@import "helpers/functions";
+@import "layout/index";
+
+.main-nav {
+  background-color: $Purple;
+  padding-top: toRem(203, 16);
+  padding-bottom: toRem(202, 16);
+  height: 100%;
+  @include breakpoint-up(medium) {
+    background-color: $DarkPurple;
+    padding: toRem(244, 16) toRem(144, 16) toRem(244, 16) toRem(144, 16);
+  }
+
+  @include breakpoint-up(large) {
+    padding-top: toRem(182, 16);
+  }
+  .content {
+    @include breakpoint-up(medium) {
+      @include app-border-style;
+      border-radius: toRem(40, 16);
+      background-color: $Purple;
+      padding: toRem(70, 16) toRem(40, 16) toRem(60, 16) toRem(40, 16);
+      width: toRem(480, 16);
+      margin: 0 auto;
+    }
+
+    @include breakpoint-up(large) {
+      border-radius: toRem(40, 16);
+      background-color: $Purple;
+      padding: toRem(70, 16) toRem(40, 16) toRem(60, 16) toRem(40, 16);
+    }
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: toRem(79, 16);
+
+    > svg {
+      width: toRem(52, 16);
+      height: toRem(52, 16);
+    }
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .nav-button {
+      width: toRem(355, 16);
+      height: toRem(72, 16);
+      font-style: normal;
+      line-height: normal;
+      padding: toRem(20, 16);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: toRem(24, 16);
+      font-weight: bold;
+      @include app-border-style;
+      &:hover {
+        box-shadow: 1px 10px 1px $DarkPurple;
+      }
+      @include breakpoint-up(medium) {
+        width: toRem(400, 16);
+        height: toRem(72, 16);
+      }
+    }
+
+    a:not(:last-child) {
+      margin-bottom: toRem(30, 16);
+    }
+
+    .nav-button.solo {
+      background-color: $Red;
+      color: $White;
+
+      > .solo__icon {
+        background: url("/assets/images/player-vs-cpu.svg");
+        width: toRem(82, 16);
+        height: toRem(46, 16);
+      }
+
+      &:hover {
+        > .solo__icon {
+          background: none;
+          background: url("/assets/images/player-vs-cpu-hover.svg");
+          width: toRem(82, 16);
+          height: toRem(46, 16);
+        }
+      }
+    }
+
+    .nav-button.multi {
+      background-color: $Yellow;
+      color: $Black;
+
+      > .multi__icon {
+        background: url("/assets/images/player-vs-player.svg");
+        width: toRem(82, 16);
+        height: toRem(46, 16);
+      }
+
+      &:hover {
+        > .multi__icon {
+          background: none;
+          background: url("/assets/images/player-vs-multi-hover.svg");
+          width: toRem(82, 16);
+          height: toRem(46, 16);
+        }
+      }
+    }
+
+    .nav-button.rules {
+      background-color: $White;
+      color: $Black;
+    }
+  }
+}

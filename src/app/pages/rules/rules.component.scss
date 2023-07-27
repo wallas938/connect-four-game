@@ -1,0 +1,92 @@
+@import "breakpoints";
+@import "mixins";
+@import "colors";
+@import "helpers/functions";
+@import "layout/index";
+
+/*
+@include breakpoint-up(medium) {
+    background-color: $DarkPurple;
+    padding: toRem(244, 16) toRem(144, 16) toRem(244, 16) toRem(144, 16);
+  }
+*/
+
+.rules {
+  background-color: $Purple;
+  padding: toRem(97, 16) toRem(20, 16);
+  height: 100%;
+
+  @include breakpoint-up(medium) {
+    padding: toRem(228, 16) toRem(144, 16) toRem(227, 16) toRem(144, 16);
+  }
+
+  @include breakpoint-up(large) {
+    padding: toRem(182, 16) toRem(144, 16) toRem(181, 16) toRem(144, 16);
+  }
+
+  .content {
+    @include app-border-style;
+    position: relative;
+    border-radius: toRem(40, 16);
+    padding: toRem(30, 16) toRem(20, 16) toRem(63, 16) toRem(20, 16);
+    background-color: $White;
+    max-width: toRem(542, 16);
+    margin: 0 auto;
+    @include breakpoint-up(medium) {
+      padding: toRem(30, 16) toRem(30, 16) toRem(56, 16) toRem(34, 16);
+    }
+    h1 {
+      font-size: toRem(56, 16);
+      font-style: normal;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: toRem(29, 16);
+    }
+
+    h2 {
+      font-size: toRem(20, 16);
+      font-style: normal;
+      font-weight: bold;
+      margin-bottom: toRem(18, 16);
+      color: $Purple;
+    }
+
+    p {
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 500;
+      margin-bottom: toRem(33, 16);
+      color: rgba($Black, 0.661);
+    }
+
+    li {
+      display: flex;
+      p {
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 500;
+        margin-bottom: toRem(11, 16);
+        color: rgba($Black, 0.661);
+        width: toRem(385, 16);
+      }
+      .number {
+        margin-right: toRem(19, 16);
+        font-weight: bold;
+        color: $Black;
+      }
+    }
+
+    .check-icon {
+      left: 50%;
+      cursor: pointer;
+      position: absolute;
+      bottom: toRem(-32, 16);
+      transform: translateX(-50%);
+      &:hover {
+        #Oval-Copy-38, #Oval-Copy-37 {
+          fill: $DarkPurple;
+        }
+      }
+    }
+  }
+}
