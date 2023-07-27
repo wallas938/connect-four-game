@@ -1,10 +1,20 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {AppComponent} from "./app.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {RulesComponent} from "./pages/rules/rules.component";
+import {HomeComponent} from "./pages/home/home.component";
 
 const routes: Routes = [
   {
-    path: "home", component: AppComponent
+    path: '', redirectTo: '/welcome', pathMatch: 'full'
+  },
+  {
+    path: "welcome", component: HomeComponent,
+  },
+  {
+    path: "rules", component: RulesComponent
+  },
+  {
+    path: '**', redirectTo: '/welcome', pathMatch: 'full'
   }
 ];
 
@@ -12,4 +22,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
