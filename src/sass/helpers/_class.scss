@@ -17,6 +17,13 @@
         display: none !important;
     }
 }
+.hide-for-desktop {
+  @include m.breakpoint-up("large") {
+    // 1440px => x
+    display: none !important;
+  }
+}
+
 
 .hide-for-mobile-and-tablet {
     @include m.breakpoint-up("large") {

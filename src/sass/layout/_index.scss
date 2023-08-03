@@ -1,3 +1,5 @@
+@import "colors";
+
 @mixin app-border-style {
   border: 3px solid $Black;
   border-radius: 20px;
