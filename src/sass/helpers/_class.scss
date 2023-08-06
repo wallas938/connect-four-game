@@ -12,7 +12,7 @@
 }
 
 .hide-for-tablet {
-    @include m.breakpoint-up("medium") {
+    @include m.breakpoint-down("medium") {
         // 768px => 1439px
         display: none !important;
     }
