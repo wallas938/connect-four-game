@@ -44,13 +44,20 @@
     }
     @include breakpoint-up(large) {
       //max-width: 978px;
+      max-width: unset;
+      max-height: unset;
+      display: flex;
+      flex-direction: column;
     }
 
     .actions {
       display: flex;
       align-items: center;
       justify-content: space-between;
-
+      @include breakpoint-up(large) {
+        width: 632px;
+        margin: 0 auto;
+      }
       img {
         margin-left: 15px;
         width: toRem(40, 16);
@@ -65,6 +72,9 @@
         background-color: $DarkPurple;
         color: $White;
         font-weight: bold;
+        &:hover {
+          background-color: $Red;
+        }
       }
 
       button:first-child {
@@ -89,6 +99,10 @@
       justify-content: space-between;
       @include breakpoint-up(medium) {
         padding-top: toRem(32, 16);
+      }
+      @include breakpoint-up(large) {
+        padding-top: unset;
+        display: none;
       }
 
       .player {
@@ -143,28 +157,25 @@
 
       @include breakpoint-up(large) {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        padding-top: toRem(51, 16);
       }
 
       .player {
-        @include app-score-card-base();
-        @include breakpoint-up(large) {
-          padding: 0;
-          flex-direction: column;
-          justify-content: space-between;
-          width: toRem(141, 16);
-          height: toRem(160, 16);
-        }
+        @include app-border-style;
+        width: toRem(141, 16);
+        height: toRem(160, 16);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        background-color: $White;
+        padding: toRem(10, 16) 0;
         svg {
           position: absolute;
-          top: 50%;
+          top: 0;
           transform: translateY(-50%);
-          @include breakpoint-up(large) {
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%) translateY(-47%);
-          }
         }
         span {
           font-weight: bold;
@@ -185,52 +196,27 @@
         }
       }
 
-      .player-one {
-        @include breakpoint-up(medium) {
-          padding: toRem(14, 16) toRem(20, 16) toRem(15, 16) toRem(44, 16);
-        }
-        @include breakpoint-up(large) {
-          padding: toRem(46, 16) toRem(42, 16) toRem(17, 16) toRem(42, 16)
-        }
-      }
-
-      .player-two {
-        @include breakpoint-up(medium) {
-          padding: toRem(14, 16) toRem(44, 16) toRem(15, 16) toRem(20, 16);
-          flex-direction: row-reverse;
-        }
-        @include breakpoint-up(large) {
-          flex-direction: column;
-          padding: toRem(46, 16) toRem(42, 16) toRem(17, 16) toRem(42, 16)
-        }
-      }
-
       .board {
         position: relative;
+        display: flex;
+        justify-content: center;
         z-index: 100;
-
         @include breakpoint-up(large) {
-          width: toRem(632, 16);
-          height: toRem(584, 16);
-          margin: 0 toRem(60, 16);
-        }
-        @include breakpoint-up(large) {
-          width: toRem(632, 16);
-          height: toRem(584, 16);
           margin: 0 toRem(60, 16);
         }
 
-        img {
+        picture {
+          width: 100%;
           @include breakpoint-up(large) {
             width: toRem(632, 16);
             height: toRem(584, 16);
           }
         }
-
-        > img:first-child {
+        picture:first-child {
           position: absolute;
           top: 0;
-          left: 0;
+          left: 50%;
+          transform: translateX(-50%);
         }
 
         .turn-info {
@@ -260,8 +246,6 @@
           }
         }
       }
-
     }
-
   }
 }

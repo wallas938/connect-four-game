@@ -50,7 +50,7 @@
       </div>
     </section>
     <section class="game">
-      <div class="player player-one hide-for-mobile hide-for-tablet">
+      <div class="player player-one hide-for-mobile-and-tablet">
         <svg xmlns="http://www.w3.org/2000/svg" width="54" height="59" viewBox="0 0 54 59" fill="none">
           <circle cx="27" cy="27" r="27" transform="matrix(-1 0 0 1 54 0)" fill="black"/>
           <circle cx="27" cy="27" r="27" transform="matrix(-1 0 0 1 54 5)" fill="black"/>
@@ -65,8 +65,16 @@
         <span class="win">12</span>
       </div>
       <div class="board">
-        <img src="assets/images/board-layer-white-small.svg">
-        <img src="assets/images/board-layer-black-small.svg">
+        <picture>
+          <source media="(min-width: 768px)" srcset="assets/images/board-layer-white-large.svg" />
+          <source media="(max-width: 767px)" srcset="assets/images/board-layer-white-small.svg" />
+          <img class="board-img white-board" src="assets/images/board-layer-white-small.svg" alt="game board picture">
+        </picture>
+        <picture>
+          <source media="(min-width: 768px)" srcset="assets/images/board-layer-black-large.svg" />
+          <source media="(max-width: 767px)" srcset="assets/images/board-layer-black-small.svg" />
+          <img class="board-img black-board" src="assets/images/board-layer-black-small.svg" alt="game board picture">
+        </picture>
         <div class="turn-info">
           <div class="text">
             <p>YOUR TURN</p>
@@ -75,7 +83,7 @@
           <img src="assets/images/turn-background-red.svg" alt="shape">
         </div>
       </div>
-      <div class="player player-two hide-for-mobile hide-for-tablet">
+      <div class="player player-two hide-for-mobile-and-tablet">
         <svg width="54px" height="59px" viewBox="0 0 54 59" version="1.1" xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink">
           <title>cpu</title>
