@@ -4,19 +4,13 @@
 @import "helpers/functions";
 @import "layout/index";
 
-/*
-@include breakpoint-up(medium) {
-    background-color: $DarkPurple;
-    padding: toRem(244, 16) toRem(144, 16) toRem(244, 16) toRem(144, 16);
-  }
-*/
-
 .game-page {
   background-color: $Purple;
   padding: toRem(50, 16) toRem(20, 16) toRem(96, 16) toRem(20, 16);
   height: 100%;
   position: relative;
   z-index: 99;
+
   &:after {
     position: absolute;
     content: "";
@@ -28,6 +22,7 @@
     border-radius: toRem(60, 16) toRem(60, 16) 0 0;
     z-index: 0;
   }
+
   @include breakpoint-up(medium) {
     padding: toRem(30, 16) toRem(67, 16) toRem(84, 16) toRem(67, 16);
   }
@@ -36,11 +31,10 @@
   }
 
   .content {
-    max-width: 400px;
-    max-height: 500px;
     margin: 0 auto;
+    max-width: toRem(335, 16);
     @include breakpoint-up(medium) {
-      max-width: 600px;
+      max-width: toRem(632, 16);
     }
     @include breakpoint-up(large) {
       //max-width: 978px;
@@ -58,6 +52,7 @@
         width: 632px;
         margin: 0 auto;
       }
+
       img {
         margin-left: 15px;
         width: toRem(40, 16);
@@ -72,6 +67,7 @@
         background-color: $DarkPurple;
         color: $White;
         font-weight: bold;
+
         &:hover {
           background-color: $Red;
         }
@@ -107,21 +103,25 @@
 
       .player {
         @include app-score-card-base();
+
         svg {
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
         }
+
         span {
           font-weight: bold;
           text-align: center;
         }
+
         span.name {
           @include breakpoint-up(medium) {
             font-size: toRem(20, 16);
             width: toRem(86, 16);
           }
         }
+
         span.win {
           font-size: toRem(34, 16);
           @include breakpoint-up(medium) {
@@ -136,7 +136,7 @@
           padding: toRem(14, 16) toRem(20, 16) toRem(15, 16) toRem(44, 16);
         }
         > svg {
-          left: -50%;
+          left: toRem(-27, 16);
         }
       }
 
@@ -172,21 +172,25 @@
         align-items: center;
         background-color: $White;
         padding: toRem(10, 16) 0;
+
         svg {
           position: absolute;
           top: 0;
           transform: translateY(-50%);
         }
+
         span {
           font-weight: bold;
           text-align: center;
         }
+
         span.name {
           @include breakpoint-up(medium) {
             font-size: toRem(20, 16);
             width: toRem(86, 16);
           }
         }
+
         span.win {
           font-size: toRem(34, 16);
           @include breakpoint-up(medium) {
@@ -201,35 +205,43 @@
         display: flex;
         justify-content: center;
         z-index: 100;
+        width: toRem(335, 16);
+        height: toRem(310, 16);
+        margin: 0 auto;
+        @include breakpoint-up(medium) {
+          width: toRem(632, 16);
+          height: toRem(584, 16);
+        }
         @include breakpoint-up(large) {
           margin: 0 toRem(60, 16);
         }
 
         picture {
           width: 100%;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
           @include breakpoint-up(large) {
             width: toRem(632, 16);
             height: toRem(584, 16);
           }
         }
+
         picture:first-child {
-          position: absolute;
-          top: 0;
-          left: 50%;
-          transform: translateX(-50%);
+          z-index: 1;
         }
 
         .turn-info {
           position: absolute;
-          bottom: toRem(-120, 16);
+          z-index: 1;
+          bottom: toRem(-135, 16);
           left: 50%;
           transform: translateX(-50%);
           width: toRem(191, 16);
           height: toRem(150, 16);
-
           @include breakpoint-up(medium) {
-            left: 50%;
-            bottom: toRem(-84, 16);
+            bottom: toRem(-110, 16);
           }
         }
 
@@ -240,6 +252,7 @@
           color: $White;
           top: toRem(41, 16);
           transform: translateX(-50%);
+
           p:last-child {
             font-weight: bold;
             font-size: toRem(56, 16);
