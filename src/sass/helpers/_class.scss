@@ -12,15 +12,22 @@
 }
 
 .hide-for-tablet {
-    @include m.breakpoint-up("medium") {
+    @include m.breakpoint-down("medium") {
         // 768px => 1439px
         display: none !important;
     }
 }
+.hide-for-desktop {
+  @include m.breakpoint-up("large") {
+    // 1440px => x
+    display: none !important;
+  }
+}
+
 
 .hide-for-mobile-and-tablet {
-    @include m.breakpoint-up("large") {
-        // 768px => 1439px
+    @include m.breakpoint-down("medium") {
+        // x <= 768px
         display: none !important;
     }
 }

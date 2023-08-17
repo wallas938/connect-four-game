@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {RulesComponent} from "./pages/rules/rules.component";
 import {HomeComponent} from "./pages/home/home.component";
+import {GameComponent} from "./pages/game/game.component";
 
 const routes: Routes = [
   {
@@ -12,6 +13,9 @@ const routes: Routes = [
   },
   {
     path: "rules", component: RulesComponent
+  },
+  {
+    path: "game", component: GameComponent
   },
   {
     path: '**', redirectTo: '/welcome', pathMatch: 'full'

@@ -1,0 +1,264 @@
+@import "breakpoints";
+@import "mixins";
+@import "colors";
+@import "helpers/functions";
+@import "layout/index";
+
+.game-page {
+  background-color: $Purple;
+  padding: toRem(50, 16) toRem(20, 16) toRem(96, 16) toRem(20, 16);
+  height: 100%;
+  position: relative;
+  z-index: 99;
+
+  &:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: toRem(236, 16);
+    background-color: $DarkPurple;
+    border-radius: toRem(60, 16) toRem(60, 16) 0 0;
+    z-index: 0;
+  }
+
+  @include breakpoint-up(medium) {
+    padding: toRem(30, 16) toRem(67, 16) toRem(84, 16) toRem(67, 16);
+  }
+  @include breakpoint-up(large) {
+    padding: toRem(53, 16) toRem(203, 16) toRem(50, 16) toRem(203, 16);
+  }
+
+  .content {
+    margin: 0 auto;
+    max-width: toRem(335, 16);
+    @include breakpoint-up(medium) {
+      max-width: toRem(632, 16);
+    }
+    @include breakpoint-up(large) {
+      //max-width: 978px;
+      max-width: unset;
+      max-height: unset;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @include breakpoint-up(large) {
+        width: 632px;
+        margin: 0 auto;
+      }
+
+      img {
+        margin-left: 15px;
+        width: toRem(40, 16);
+        height: toRem(40, 16);
+        @include breakpoint-down(medium) {
+          width: toRem(52, 16);
+          height: toRem(52, 16);
+        }
+      }
+
+      button {
+        background-color: $DarkPurple;
+        color: $White;
+        font-weight: bold;
+
+        &:hover {
+          background-color: $Red;
+        }
+      }
+
+      button:first-child {
+        border: none;
+        border-radius: toRem(20, 16);
+        padding: toRem(9, 16) toRem(32, 16);
+        @include breakpoint-down(medium) {
+          padding: toRem(9, 16) toRem(21, 16);
+        }
+      }
+
+      button:last-child {
+        border: none;
+        border-radius: toRem(20, 16);
+        padding: toRem(9, 16) toRem(21, 16);
+      }
+    }
+
+    .score-mobile {
+      display: flex;
+      padding: toRem(50, 16) toRem(14, 16) 0 toRem(14, 16);
+      justify-content: space-between;
+      @include breakpoint-up(medium) {
+        padding-top: toRem(32, 16);
+      }
+      @include breakpoint-up(large) {
+        padding-top: unset;
+        display: none;
+      }
+
+      .player {
+        @include app-score-card-base();
+
+        svg {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        span {
+          font-weight: bold;
+          text-align: center;
+        }
+
+        span.name {
+          @include breakpoint-up(medium) {
+            font-size: toRem(20, 16);
+            width: toRem(86, 16);
+          }
+        }
+
+        span.win {
+          font-size: toRem(34, 16);
+          @include breakpoint-up(medium) {
+            font-size: toRem(56, 16);
+            width: toRem(102, 16);
+          }
+        }
+      }
+
+      .player-one {
+        @include breakpoint-up(medium) {
+          padding: toRem(14, 16) toRem(20, 16) toRem(15, 16) toRem(44, 16);
+        }
+        > svg {
+          left: toRem(-27, 16);
+        }
+      }
+
+      .player-two {
+        @include breakpoint-up(medium) {
+          padding: toRem(14, 16) toRem(44, 16) toRem(15, 16) toRem(20, 16);
+          flex-direction: row-reverse;
+        }
+        > svg {
+          right: toRem(-27, 16);
+        }
+      }
+    }
+
+    .game {
+      padding-top: toRem(50, 16);
+      margin: 0 auto;
+
+      @include breakpoint-up(large) {
+        display: flex;
+        align-items: center;
+        padding-top: toRem(51, 16);
+      }
+
+      .player {
+        @include app-border-style;
+        width: toRem(141, 16);
+        height: toRem(160, 16);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        background-color: $White;
+        padding: toRem(10, 16) 0;
+
+        svg {
+          position: absolute;
+          top: 0;
+          transform: translateY(-50%);
+        }
+
+        span {
+          font-weight: bold;
+          text-align: center;
+        }
+
+        span.name {
+          @include breakpoint-up(medium) {
+            font-size: toRem(20, 16);
+            width: toRem(86, 16);
+          }
+        }
+
+        span.win {
+          font-size: toRem(34, 16);
+          @include breakpoint-up(medium) {
+            font-size: toRem(56, 16);
+            width: toRem(102, 16);
+          }
+        }
+      }
+
+      .board {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        z-index: 100;
+        width: toRem(335, 16);
+        height: toRem(310, 16);
+        margin: 0 auto;
+        @include breakpoint-up(medium) {
+          width: toRem(632, 16);
+          height: toRem(584, 16);
+        }
+        @include breakpoint-up(large) {
+          margin: 0 toRem(60, 16);
+        }
+
+        picture {
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          @include breakpoint-up(large) {
+            width: toRem(632, 16);
+            height: toRem(584, 16);
+          }
+        }
+
+        picture:first-child {
+          z-index: 1;
+        }
+
+        .turn-info {
+          position: absolute;
+          z-index: 1;
+          bottom: toRem(-135, 16);
+          left: 50%;
+          transform: translateX(-50%);
+          width: toRem(191, 16);
+          height: toRem(150, 16);
+          @include breakpoint-up(medium) {
+            bottom: toRem(-110, 16);
+          }
+        }
+
+        .text {
+          position: absolute;
+          text-align: center;
+          left: 50%;
+          color: $White;
+          top: toRem(41, 16);
+          transform: translateX(-50%);
+
+          p:last-child {
+            font-weight: bold;
+            font-size: toRem(56, 16);
+          }
+        }
+      }
+    }
+  }
+}
