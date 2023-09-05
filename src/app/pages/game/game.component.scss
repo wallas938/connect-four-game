@@ -216,6 +216,33 @@
           margin: 0 toRem(60, 16);
         }
 
+        .board-grid {
+          position: absolute;
+          top: 0;
+          width: toRem(335, 16);
+          height: toRem(310, 16);
+          z-index: 2;
+          display: flex;
+          .grid__column {
+            z-index: 2;
+            height: 100%;
+            width: 14.28571428571429%;
+            background-color: pink;
+            position: relative;
+          }
+
+          .grid__space {
+            position: relative;
+          }
+
+          .grid__column:hover {
+            .grid__space {
+
+            }
+          }
+
+        }
+
         picture {
           width: 100%;
           position: absolute;
@@ -228,7 +255,11 @@
           }
         }
 
-        picture:first-child {
+        .white-board {
+          z-index: 3;
+        }
+
+        .black-board {
           z-index: 1;
         }
 
