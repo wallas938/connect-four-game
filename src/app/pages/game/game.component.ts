@@ -10,9 +10,20 @@ interface Disc {
     x: number;
     y: number;
   },
-  color: DiscState;
   column: number;
   row: number;
+}
+
+interface DiscPosition {
+  c1r1: {
+    color: DiscState;
+    position: {
+      x: 0.07;
+      y: 1;
+    },
+    column: number;
+    row: number;
+  }
 }
 
 @Component({
@@ -22,5 +33,5 @@ interface Disc {
 })
 export class GameComponent {
 
-  columns: Disc[] = []
+  gridPositions: DiscPosition[] = []
 }
